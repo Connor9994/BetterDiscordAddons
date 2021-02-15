@@ -2,7 +2,7 @@
 My Addons for BetterDiscord
 
 # Stream Fixer
-* Ability to drag the stream-preview box anywhere (and not just the 4 corners)
+* Ability to drag the stream-preview box anywhere (not just the 4 corners)
 
 * Adds 2 Slider bars to adjust height/width of the stream-preview
 
