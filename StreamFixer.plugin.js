@@ -1,21 +1,16 @@
 /**
  * @name StreamFixer
  * @version 1.0.1
- 
- Original Plugin Layout by the following:
- * @authorLink https://twitter.com/IAmZerebos
- * @donate https://paypal.me/ZackRauen
- * @patreon https://patreon.com/Zerebos
- * @website https://github.com/rauenzi/BetterDiscordAddons/tree/master/Plugins/StreamFixer
- * @source https://raw.githubusercontent.com/rauenzi/BetterDiscordAddons/master/Plugins/StreamFixer/StreamFixer.plugin.js
- * @updateUrl https://raw.githubusercontent.com/rauenzi/BetterDiscordAddons/master/Plugins/StreamFixer/StreamFixer.plugin.js
+ * @website https://github.com/Nerve-Damage-sys/BetterDiscordAddons
+ * @source https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
+ * @updateUrl https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
 @else@*/
 
 module.exports = (() => {
-    const config = {info:{name:"StreamFixer",authors:[{name:"Connor",discord_id:"",github_username:"NerveDamage",twitter_username:"NerveDamage"}],version:"1",description:"Fixes Streams",github:"https://github.com/NerveDamage/BetterDiscordAddons/tree/master/Plugins/StreamFixer",github_raw:"https://raw.githubusercontent.com/NerveDamage/BetterDiscordAddons/master/Plugins/StreamFixer/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["","Fixed most of the bugs I could find."]}],defaultConfig:[{},{}],main:"index.js"};
+    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.1",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["","Fixed most of the bugs I could find."]}],defaultConfig:[{},{}],main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
