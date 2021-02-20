@@ -10,7 +10,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.1",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["","Fixed most of the bugs I could find."]}],defaultConfig:[{},{}],main:"index.js"};
+    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.1",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Fixed most of the bugs I could find."]}],defaultConfig:[{},{}],main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -23,8 +23,8 @@ module.exports = (() => {
                 confirmText: "Download Now",
                 cancelText: "Cancel",
                 onConfirm: () => {
-                    require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/rauenzi/BDPluginLibrary/master/release/0PluginLibrary.plugin.js");
+                    require("request").get("https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js", async (error, response, body) => {
+                        if (error) return require("electron").shell.openExternal("https://betterdiscord.net/ghdl?url=https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js");
                         await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
                     });
                 }
