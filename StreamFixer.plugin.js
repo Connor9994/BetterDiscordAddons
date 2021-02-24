@@ -1,16 +1,16 @@
 /**
  * @name StreamFixer
- * @version 1.0.1
+ * @version 1.0.3
  * @website https://github.com/Nerve-Damage-sys/BetterDiscordAddons
  * @source https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
  * @updateUrl https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
-@else@*/
+@else@*/	
 
 module.exports = (() => {
-    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.1",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Fixed most of the bugs I could find."]}],defaultConfig:[{},{}],main:"index.js"};
+    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.3",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Better settings memory."]}],defaultConfig:[{},{}],main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -39,6 +39,20 @@ module.exports = (() => {
 	
 	function onGotcha(x,y,mouseDown,mouse2Down,SizeX,SizeY)
 	{
+		
+	var OriginalX = x;
+	if (SizeX == 500 && SizeY == 500)	qwerty
+	{
+		try{x = localStorage.getItem('x');} catch(er){}
+		try{y = localStorage.getItem('x');} catch(er){}
+		try{SizeX = localStorage.getItem('SizeX');} catch(er){}
+		try{SizeY = localStorage.getItem('SizeY');} catch(er){}
+		if (x != OriginalX)
+		{
+			return;
+		}
+	}
+	
 	var oldX = 0;
 	
 	try{document.getElementsByClassName("pictureInPictureVideo-2iKsGg da-pictureInPictureVideo idle-70Gg3H da-idle")[0].style.height = SizeY + "px"} catch(er) {};
@@ -103,7 +117,11 @@ module.exports = (() => {
 			SizeY = this.value
 	}} catch(er){}
 	
-	try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].onmouseup = function() {mouseDown = 0; event.preventDefault(); event.stopPropagation(); console.log(mouseDown)}} catch(er) {}; 
+	try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].onmouseup = function()
+	{
+		mouseDown = 0; event.preventDefault(); event.stopPropagation(); console.log(mouseDown)
+	}} catch(er) {}; 
+	
 	try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].onmouseover = function() 
 	{
 		mouseDown = 0; 
@@ -113,9 +131,12 @@ module.exports = (() => {
 	}}catch(er) {};
 	
 	try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].onmousedown = function() {
-				mouseDown = 1; 
-				event.preventDefault(); 
-				event.stopPropagation(); 
+				if (event.which == 1)
+				{
+					mouseDown = 1;
+					event.preventDefault(); 
+					event.stopPropagation(); 
+				}
 			}
 		} catch(er) {}; 
 		
@@ -185,7 +206,7 @@ module.exports = (() => {
 	
 	try{document.getElementsByClassName("viewers-3jBi-s da-viewers leftTrayIcon-1mCY9j da-leftTrayIcon")[0].onmouseout = function() 
 	{
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[0].style.opacity = 0} catch(er) {};  //DougPopup
+		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[0].style.opacity = 0} catch(er) {};
 	}
 	} catch(er){}
 	
@@ -224,7 +245,7 @@ module.exports = (() => {
 		
 		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[1].style.opacity = 0 } catch(er) {}; //Turn on Camera Popup
 		
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[2].style.opacity = 0} catch(er) {};
+		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[2].style.opacity = 0} catch(er) {}; 
 		
 		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[3].style.opacity = 0} catch(er) {};
 		
@@ -251,7 +272,13 @@ module.exports = (() => {
 	 
 	 //try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondblclick = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {};
 	
-	setTimeout(function(){ onGotcha(x,y,mouseDown,mouse2Down,SizeX,SizeY) }, 0);
+	try{x = localStorage.setItem('x',x);} catch(er){}
+	try{y = localStorage.setItem('y',y);} catch(er){}
+	try{SizeX = localStorage.setItem('SizeX',SizeX);} catch(er){}
+	try{SizeY = localStorage.setItem('SizeY',SizeY);} catch(er){}
+	
+	
+	setTimeout(function(){ onGotcha(x,y,mouseDown,mouse2Down,SizeX,SizeY) }, 100);
 	return;
 	}//end of onGotcha
 	
