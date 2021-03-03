@@ -1,6 +1,6 @@
 /**
  * @name StreamFixer
- * @version 1.0.4
+ * @version 1.0.5
  * @website https://github.com/Nerve-Damage-sys/BetterDiscordAddons
  * @source https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
  * @updateUrl https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
@@ -10,7 +10,7 @@
 @else@*/	
 
 module.exports = (() => {
-    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.4",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Better settings memory.","Fixed script after a BD update (not Discord)"]}],defaultConfig:[{},{}],main:"index.js"};
+    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.5",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Better settings memory.","Fixed script after a BD update (not Discord)","As many menus fixed as I could find."]}],defaultConfig:[{},{}],main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -143,6 +143,11 @@ module.exports = (() => {
 					event.preventDefault(); 
 					event.stopPropagation(); 
 				}
+				else if (event.which == 3)
+				{
+					event.dispatchEvent();
+					return;
+				}
 			}
 		} catch(er) {}; 
 		
@@ -239,29 +244,60 @@ module.exports = (() => {
 	}
 	}catch(er){}
 	
+	try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih")[0].onmouseover = function() 
+	{
+		try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih").style.opacity = 1} catch(er) {};
+	}
+	}catch(er){}
+	
+	try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih")[0].onmouseout = function() 
+	{
+		try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih").style.opacity = 0} catch(er) {};
+	}
+	}catch(er){}
+	
 	try{document.getElementsByClassName("rightTrayIcon-gMHgPy da-rightTrayIcon button-38aScr da-button lookBlank-3eh9lL colorBrand-3pXr91 grow-q77ONN da-grow")[1].onmouseover = function() 
 	{
 		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[1].style.opacity = 1} catch(er) {}; 
 	}
 	}catch(er){}
 	
-	try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].onmouseover = function() 
+	for (let i=0;i < document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture").length; i++)
 	{
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[0].style.opacity = 0} catch(er) {};  //DougPopup
-		
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[1].style.opacity = 0 } catch(er) {}; //Turn on Camera Popup
-		
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[2].style.opacity = 0} catch(er) {}; 
-		
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[3].style.opacity = 0} catch(er) {};
-		
-		try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[4].style.opacity = 0} catch(er) {};
-		
-		document.getElementsByClassName("videoControls-38i4kP da-videoControls")[0].style.opacity = 0.25; //Controls
-		event.preventDefault();
-		event.stopPropagation(); 
-	}} catch(er) {}; 
-	
+		try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[i].onmouseover = function() 
+		{
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[0].style.opacity = 0} catch(er) {};  //DougPopup
+			
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[1].style.opacity = 0 } catch(er) {}; //Turn on Camera Popup
+			
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[2].style.opacity = 0} catch(er) {}; 
+			
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[3].style.opacity = 0} catch(er) {};
+			
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[4].style.opacity = 0} catch(er) {};
+			
+			try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih").style.opacity = 0} catch(er) {};
+			
+			document.getElementsByClassName("videoControls-38i4kP da-videoControls")[0].style.opacity = 0.25; //Controls
+			event.preventDefault();
+			event.stopPropagation(); 
+		}} catch(er) {};
+	}	
+
+		try{document.getElementsByClassName("menu-3sdvDG da-menu styleFlexible-wGDiIL da-styleFlexible")[0].onmouseout = function() 
+		{
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[0].style.opacity = 0} catch(er) {};  //DougPopup
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[1].style.opacity = 0 } catch(er) {}; //Turn on Camera Popup
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[2].style.opacity = 0} catch(er) {}; 
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[3].style.opacity = 0} catch(er) {};
+			try{document.getElementsByClassName("tooltip-2QfLtc da-tooltip tooltipTop-XDDSxx tooltipGrey-1hnvTt tooltipDisablePointerEvents-3eaBGN da-tooltipDisablePointerEvents")[4].style.opacity = 0} catch(er) {};
+			try{document.getElementsByClassName("scroller-3BxosC da-scroller thin-1ybCId scrollerBase-289Jih").style.opacity = 0} catch(er) {};
+			try{document.getElementsByClassName("menu-3sdvDG da-menu styleFlexible-wGDiIL da-styleFlexible").style.opacity = 0} catch(er) {};
+			
+			event.preventDefault();
+			event.stopPropagation(); 
+		}} catch(er) {};
+
 	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondrag = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {}; 
 	 
 	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondragstart = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {};
