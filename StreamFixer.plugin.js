@@ -1,6 +1,6 @@
 /**
  * @name StreamFixer
- * @version 1.0.3
+ * @version 1.0.4
  * @website https://github.com/Nerve-Damage-sys/BetterDiscordAddons
  * @source https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
  * @updateUrl https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js
@@ -10,7 +10,7 @@
 @else@*/	
 
 module.exports = (() => {
-    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.3",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Better settings memory."]}],defaultConfig:[{},{}],main:"index.js"};
+    const config = {info:{name:"Stream Fixer",authors:[{name:"Connor",discord_id:"",github_username:"Nerve-Damage-sys",twitter_username:"Nerve-Damage-sys"}],version:"1.0.4",description:"Fixes Streams",github:"https://github.com/Nerve-Damage-sys/BetterDiscordAddons",github_raw:"https://raw.githubusercontent.com/Nerve-Damage-sys/BetterDiscordAddons/main/StreamFixer.plugin.js"},changelog:[{title:"Changes",items:["Better settings memory.","Fixed script after a BD update (not Discord)"]}],defaultConfig:[{},{}],main:"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
@@ -41,7 +41,7 @@ module.exports = (() => {
 	{
 		
 	var OriginalX = x;
-	if (SizeX == 500 && SizeY == 500)	qwerty
+	if (SizeX == 500 && SizeY == 500)
 	{
 		try{x = localStorage.getItem('x');} catch(er){}
 		try{y = localStorage.getItem('x');} catch(er){}
@@ -53,12 +53,18 @@ module.exports = (() => {
 		}
 	}
 	
-	var oldX = 0;
-	
 	try{document.getElementsByClassName("pictureInPictureVideo-2iKsGg da-pictureInPictureVideo idle-70Gg3H da-idle")[0].style.height = SizeY + "px"} catch(er) {};
 	try{document.getElementsByClassName("pictureInPictureVideo-2iKsGg da-pictureInPictureVideo idle-70Gg3H da-idle")[0].style.width = SizeX + "px"} catch(er) {};
-	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.left = x} catch(er) {};
-	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.top = y} catch(er) {};
+		
+	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.height = SizeY + "px"} catch(er) {};
+	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.width = SizeX + "px"} catch(er) {};
+	
+	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.left = x + "px"} catch(er) {};
+	try{document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.top = y + "px"} catch(er) {};
+	
+	try{document.getElementsByClassName("pictureInPictureVideo-2iKsGg da-pictureInPictureVideo idle-70Gg3H da-idle")[0].style.left = x + "px"} catch(er) {};
+	try{document.getElementsByClassName("pictureInPictureVideo-2iKsGg da-pictureInPictureVideo idle-70Gg3H da-idle")[0].style.top = y + "px"} catch(er) {};
+	
 	
 	try{document.getElementsByClassName("previewWrapper-39cUHY video-1kutKI da-previewWrapper da-video")[0].onmouseover =
 	function ()
@@ -163,7 +169,7 @@ module.exports = (() => {
 				{
 					document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.left = windowWidth - (SizeX/2);
 				}
-			x = document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.left
+					x = document.getElementsByClassName("pictureInPictureWindow-1B5qSe da-pictureInPictureWindow")[0].style.left
 			}
 			else
 			{
@@ -254,7 +260,7 @@ module.exports = (() => {
 		document.getElementsByClassName("videoControls-38i4kP da-videoControls")[0].style.opacity = 0.25; //Controls
 		event.preventDefault();
 		event.stopPropagation(); 
-	}} catch(er) {};
+	}} catch(er) {}; 
 	
 	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondrag = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {}; 
 	 
@@ -268,7 +274,7 @@ module.exports = (() => {
 	 
 	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondragover = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {};
 	 
-	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondragdrop = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {};
+	 try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondragdrop = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {}; 
 	 
 	 //try{document.getElementsByClassName("pictureInPicture-3VocJq da-pictureInPicture")[0].ondblclick = function() {event.preventDefault(); event.stopPropagation(); return false }} catch(er) {};
 	
@@ -277,15 +283,15 @@ module.exports = (() => {
 	try{SizeX = localStorage.setItem('SizeX',SizeX);} catch(er){}
 	try{SizeY = localStorage.setItem('SizeY',SizeY);} catch(er){}
 	
-	
 	setTimeout(function(){ onGotcha(x,y,mouseDown,mouse2Down,SizeX,SizeY) }, 100);
 	return;
 	}//end of onGotcha
 	
     const SelectedChannelStore = DiscordModules.SelectedChannelStore;
     const ChannelStore = DiscordModules.ChannelStore;
-    const ReactDOM = DiscordModules.ReactDOM;
+    const ReactDOM = DiscordModules.ReactDOM; 
     const InlineMediaWrapper = WebpackModules.getByProps("ImageReadyStates").default;
+	setTimeout(function(){ onGotcha(0,0,0,0,500,500) }, 100);
 
     return class StreamFixer extends Plugin {
         constructor() {
@@ -305,9 +311,6 @@ module.exports = (() => {
         }
 
         onStart() {
-			console.log("onStart()")
-			var Over = 0;
-			setTimeout(function(){ onGotcha(0,0,0,0,500,500) }, 100);
         }
 		
         onStop() {
@@ -321,7 +324,6 @@ module.exports = (() => {
             });
             return panel.getElement();
         }
-
     };
 };
         return plugin(Plugin, Api);
