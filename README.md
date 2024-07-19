@@ -8,4 +8,4 @@ My Addons for BetterDiscord
 
 * Fixes the Discord bug which leaves the volume slider on the screen if you don't click back to discord
 
-![alt text](https://github.com/Nerve-Damage-sys/BetterDiscordAddons/blob/main/ReadMe1.png)
+![ReadMe1](https://github.com/user-attachments/assets/75384074-d9d7-4b92-b242-8cd4c3ba543b)
