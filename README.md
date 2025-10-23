@@ -1,4 +1,7 @@
 # BetterDiscordAddons
+
+![GitHub stars](https://img.shields.io/github/stars/Connor9994/BetterDiscordAddons?style=social) ![GitHub forks](https://img.shields.io/github/forks/Connor9994/BetterDiscordAddons?style=social) ![GitHub issues](https://img.shields.io/github/issues/Connor9994/BetterDiscordAddons) 
+
 My Addons for BetterDiscord
 
 # Stream Fixer
